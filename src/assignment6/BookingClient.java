@@ -33,11 +33,12 @@ public class BookingClient{
    * @return list of threads used in the simulation,
    *         should have as many threads as there are box offices
    */
-	public List<Thread> simulate() {
-		//TODO: Implement this method
-	}
+//	public List<Thread> simulate() {
+//		//TODO: Implement this method
+//	}
 	
 	public static void main(String[] args) {
+		System.out.println(new Theater.Seat(1,12));
 		
 	}
 }

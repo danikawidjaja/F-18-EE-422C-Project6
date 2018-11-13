@@ -38,10 +38,10 @@ public class Theater {
 		
 		private String convertToRow(int seatNumber) {
 			if (seatNumber<26) {
-				return Character.toString((char) (seatNumber+40));
+				return Character.toString((char) (seatNumber+64));
 			}
 			else {
-				String last = Character.toString((char)((seatNumber%26) + 40));
+				String last = Character.toString((char)((seatNumber%26) + 64));
 				String first = convertToRow(seatNumber/26);
 				return first+last;
 			}
