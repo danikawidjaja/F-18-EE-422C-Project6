@@ -13,13 +13,17 @@ import java.util.Map;
 import java.util.List;
 import java.lang.Thread;
 
-public class BookingClient {
+public class BookingClient{
+	private Map<String, Integer> office;
+	private Theater theater;
   /*
    * @param office maps box office id to number of customers in line
    * @param theater the theater where the show is playing
    */
   public BookingClient(Map<String, Integer> office, Theater theater) {
     // TODO: Implement this constructor
+	  this.office = office;
+	  this.theater = theater;
   }
 
   /*
