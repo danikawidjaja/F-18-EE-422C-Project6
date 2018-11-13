@@ -64,7 +64,7 @@ public class Theater {
 		private Seat seat;
 		private int client;
 		
-		private int width = 10;
+		private int width = 31;
 
 		public Ticket(String show, String boxOfficeId, Seat seat, int client) {
 			this.show = show;
@@ -98,17 +98,37 @@ public class Theater {
 			}
 			ticket = ticket.concat("\n");
 			
-			System.out.println("");
-			ticket = ticket.concat("| Show: " + show + "|\n" );
-			ticket = ticket.concat("| Box Office ID: " + boxOfficeId + "|\n" );
-			ticket = ticket.concat("| Seat: " + seat + "|\n" );
-			ticket = ticket.concat("| Client: " + client + "|\n" );
+			String line1 = line ("Show: " + show);
+			String line2 = line("Box Office ID: " + boxOfficeId);
+			String line3 = line("Seat: " + seat);
+			String line4 = line("Client: " + client);
+			
+			ticket = ticket + line1 + line2 + line3 + line4;
 			
 			for (int i=0; i<width; i++) {
 				ticket = ticket.concat("-");
 			}
 			ticket = ticket.concat("\n");
 			return ticket;
+		}
+		
+		private String line (String message) {
+			String l = "| "+ message ;
+			if (l.length() <width) {
+				int space = width - l.length()-1;
+				String padding = spaces(space);
+				l += padding;
+			}
+			l += "|\n";
+			return l;
+		}
+		
+		private String spaces(int n) {
+			String s= "";
+			for (int i=0; i<n; i++) {
+				s+=" ";
+			}
+			return s;
 		}
 	}
 	
@@ -142,8 +162,9 @@ public class Theater {
 			return null;
 		}
 		Seat currentSeat = new Seat(currentRowNumber, currentSeatNumber);
-		currentSeatNumber = (currentSeatNumber+1)%seatsPerRow;
-		currentRowNumber++;
+		if (currentSeatNumber%(seatsPerRow) == 0) currentRowNumber++;
+		currentSeatNumber = (currentSeatNumber+1)%(seatsPerRow);
+		if (currentSeatNumber == 0) currentSeatNumber = seatsPerRow;
 		return currentSeat;
 		
 	}
