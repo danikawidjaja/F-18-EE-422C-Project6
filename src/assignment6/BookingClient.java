@@ -1,4 +1,12 @@
-// Insert header here
+/* MULTITHREADING <MyClass.java>
+ * EE422C Project 6 submission by
+ * Replace <...> with your actual data.
+ * Danika Widjaja
+ * dew2532
+ * 16345
+ * Slip days used: <0>
+ * Fall 2018
+ */
 package assignment6;
 
 import java.util.Map;
@@ -23,5 +31,9 @@ public class BookingClient {
    */
 	public List<Thread> simulate() {
 		//TODO: Implement this method
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 }
